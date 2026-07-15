@@ -1,8 +1,13 @@
+import java.util.Scanner;
 public class ArrayBasics {
     public static void main(String[] args) {
         //arrays are mutable//
        int[] arr={1,2,3,4,5};
         
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter any number");
+        double num=sc.nextDouble();
+         
         for(int i=0;i<arr.length;i++)
         {
             System.out.println(arr[i]);
