@@ -12,7 +12,7 @@ public class One
             return;
         }
         
-        System.out.println(n);
+        System.out.println(n);//n to 1
         show(n-1);
     }
 }
