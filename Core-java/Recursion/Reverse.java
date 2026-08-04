@@ -10,9 +10,9 @@ public class Reverse
     }
     public static int reverseNo(int n,int l)
     {
-        if(n==0)
+        if((n%10)==n)
         {
-            return 0;
+            return n;
         }
         return (n%10)*(int) Math.pow(10, l) + reverseNo(n/10,l-1);
     }
