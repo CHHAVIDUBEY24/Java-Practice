@@ -6,6 +6,7 @@ public class MergeSort
         int arr[]={5,6,7,1,2,3,9,4,8,0};
         arr=mergeSort(arr);
         System.out.println(Arrays.toString(arr));
+
     }
     public static int[] mergeSort(int[] arr)
     {
@@ -54,4 +55,5 @@ public class MergeSort
         return ans;
     }
 
+    
 }
