@@ -40,7 +40,8 @@ public class MergeSortInPlace {
         {
             ans[k++]=arr[i++];
         }
-        while (j<=e) {
+        while (j<=e) 
+        {
             ans[k++]=arr[j++];
         }
         for(int l=0;l<ans.length;l++)
