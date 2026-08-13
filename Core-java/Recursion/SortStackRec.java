@@ -22,7 +22,7 @@ public class SortStackRec {
     }
     public static void insertF(Deque<Integer> dq,int val)
     {
-        if(dq.size()==0 || dq.peek()<=val)
+        if(dq.size()==0 || dq.peek()>=val)
         {
             dq.push(val);
             return;
