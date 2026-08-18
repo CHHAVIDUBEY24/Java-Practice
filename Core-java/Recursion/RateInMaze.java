@@ -43,30 +43,26 @@ public class RateInMaze {
             ans.add(path);
             return;
         }
+        
         maze[i][j]=0;
+
         if(isUp(maze,i,j))
-        {
-            path+='U';
-           
-            helper(maze, i-1, j, path, ans);
+        {  
+            helper(maze, i-1, j, path+'U', ans);
         }
          if(isDown(maze,i,j))
-        {
-            path+='D';
-            
-            helper(maze, i+1, j, path, ans);
+        { 
+            helper(maze, i+1, j, path+'D', ans);
         }
          if(isRight(maze,i,j))
         {
-            path+='R';
             
-            helper(maze, i, j+1, path, ans);
+            helper(maze, i, j+1, path+'R', ans);
         }
          if(isLeft(maze,i,j))
         {
-            path+='L';
             
-            helper(maze, i, j-1, path, ans);
+            helper(maze, i, j-1, path+'L', ans);
         }
         maze[i][j]=1;
 
