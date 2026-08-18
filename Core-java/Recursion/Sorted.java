@@ -12,6 +12,6 @@ public class Sorted
             return true;
         }
         
-        return arr[i]<arr[i+1] && sorted(arr,i+1);
+        return arr[i]<=arr[i+1] && sorted(arr,i+1);
     }
 }
