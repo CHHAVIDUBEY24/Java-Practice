@@ -41,7 +41,7 @@ public static boolean isValid(char[][] board,int i,int j)
 
 }
 
-public static void helper(char[][]board,int i,int j,ArrayList<ArrayList<String>> ans,ArrayList<String> res)
+public static void helper(char[][]board,int i,ArrayList<ArrayList<String>> ans,ArrayList<String> res)
 {
     int n=board.length;
     if(i==n)
@@ -49,13 +49,14 @@ public static void helper(char[][]board,int i,int j,ArrayList<ArrayList<String>>
         ans.add(new ArrayList<>(res));
         return;
     }
+
     for(int k=0;k<board.length;k++)
     {
     if(isValid(board,i,k))
     {
         board[i][k]='Q';
         res.add(new String(board[i]));
-        helper(board, i+1, k, ans, res);
+        helper(board, i+1, ans, res);
         res.remove(res.size()-1);
         board[i][k]='.';
     }
@@ -71,7 +72,7 @@ public static void helper(char[][]board,int i,int j,ArrayList<ArrayList<String>>
 
         ArrayList<ArrayList<String>> ans=new ArrayList<>();
         ArrayList<String> res=new ArrayList<>();
-        helper(board,0,0,ans,res);
+        helper(board,0,ans,res);
         for(ArrayList<String> i:ans)
         {
             System.out.print(i);
