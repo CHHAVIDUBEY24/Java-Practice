@@ -16,8 +16,12 @@ static int ind=-1;
         
         int[] arr={1,2,-1,-1,3,4,5,-1,-1,-1,-1};
         Node root=tNode(arr);
+        System.out.println("PreOrder Traversal: ");
         preOrder(root);  //root left right
-
+        System.out.println("InOrder Traversal: ");   // this 3 follows DFS
+        inOrder(root);  //left root right
+        System.out.println("PostOrder Traversal: ");
+        postOrder(root); // left right root
     }
 
     
@@ -44,5 +48,19 @@ static int ind=-1;
         System.out.println(root.data);
         preOrder(root.left);
         preOrder(root.right);
+    }
+    public static void inOrder(Node root)
+    {
+        if(root==null) return;
+        inOrder(root.left);
+        System.out.println(root.data);
+        inOrder(root.right);
+    }
+    public static void postOrder(Node root)
+    {
+        if(root==null) return;
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.println(root.data);
     }
 }
