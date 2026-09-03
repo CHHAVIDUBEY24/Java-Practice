@@ -1,3 +1,7 @@
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BuildTree {
 
 public static class Node{
@@ -22,6 +26,9 @@ static int ind=-1;
         inOrder(root);  //left root right
         System.out.println("PostOrder Traversal: ");
         postOrder(root); // left right root
+        System.out.println("LevelOrder Traversal: ");
+        levelOrder(root); // BFS
+        
     }
 
     
@@ -62,5 +69,37 @@ static int ind=-1;
         postOrder(root.left);
         postOrder(root.right);
         System.out.println(root.data);
+    }
+    public static void levelOrder(Node root)
+    {
+        Queue<Node> q =new LinkedList<>();
+        q.offer(root);
+        q.offer(null);
+        while(!q.isEmpty())
+        {
+            Node curr=q.peek();
+            q.remove();
+            
+            if(curr==null)
+            {
+                if(!q.isEmpty())
+                {
+                    System.out.println();
+                    q.offer(null);
+                }
+                else
+                {
+                    break;
+                }
+                continue;
+            }
+            System.out.print(curr.data+" ");
+            if(curr.left!=null)
+            q.offer(curr.left);
+            if(curr.right!=null)
+            q.offer(curr.right);
+            
+        }
+        System.out.println();
     }
 }
