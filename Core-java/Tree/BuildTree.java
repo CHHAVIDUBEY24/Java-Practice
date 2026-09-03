@@ -1,7 +1,4 @@
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.Queue;
-
+import java.util.*;
 public class BuildTree {
 
 public static class Node{
@@ -13,6 +10,15 @@ public static class Node{
         this.data=data;
         left=null;
         right=null;
+    }
+}
+public static class Pair {
+    Node node;
+    int hd;
+
+    Pair(Node node, int hd) {
+        this.node = node;
+        this.hd=hd;
     }
 }
 static int ind=-1;
@@ -28,7 +34,8 @@ static int ind=-1;
         postOrder(root); // left right root
         System.out.println("LevelOrder Traversal: ");
         levelOrder(root); // BFS
-        
+        System.out.println("Top View: ");
+        topView(root); // BFS
     }
 
     
@@ -101,5 +108,40 @@ static int ind=-1;
             
         }
         System.out.println();
+    }
+    public static void topView(Node root)
+    {
+        Map<Integer,Node>mpp=new HashMap<>();
+        Queue<Pair> q=new LinkedList<>();
+
+        q.offer(new Pair(root,0));
+        int d=0;
+        
+        while(!q.isEmpty())
+        {
+            Pair p = q.poll();
+            Node curr = p.node;
+            int hd=p.hd;
+            
+            if(curr.left!=null)
+            {
+                q.offer(new Pair(curr.left,hd-1));
+   
+            }
+            if(curr.right!=null)
+            {
+                q.offer(new Pair(curr.right,hd+1));
+            }
+            if(!mpp.containsKey(hd))
+            {
+                mpp.put(hd,curr);
+            }
+        }
+
+        for(Map.Entry<Integer, Node> i : mpp.entrySet())
+        {
+            System.out.println(i.getValue().data);
+        }
+
     }
 }
