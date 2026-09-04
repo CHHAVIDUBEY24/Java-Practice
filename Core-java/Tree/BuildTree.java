@@ -38,6 +38,11 @@ static int ind=-1;
         topView(root); // BFS
         System.out.println("Kth Level of a Tree: ");
         kthLevel(root,2); // BFS
+        System.out.println("Sum Tree: ");
+        sumTree(root);
+        System.out.println("LevelOrder Traversal after sum tree: ");
+        levelOrder(root); // BFS
+
     }
 
     
@@ -157,5 +162,16 @@ static int ind=-1;
         }
         kthLevel(root.left,k-1);
         kthLevel(root.right,k-1);
+    }
+
+    public static int sumTree(Node root)
+    {
+        if(root == null) return 0;
+        int left = sumTree(root.left);
+        int right = sumTree(root.right);
+
+        root.data=root.data+left+right;
+
+        return root.data;
     }
 }
