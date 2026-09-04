@@ -36,6 +36,8 @@ static int ind=-1;
         levelOrder(root); // BFS
         System.out.println("Top View: ");
         topView(root); // BFS
+        System.out.println("Kth Level of a Tree: ");
+        kthLevel(root,2); // BFS
     }
 
     
@@ -109,6 +111,7 @@ static int ind=-1;
         }
         System.out.println();
     }
+    //Important : Top View 
     public static void topView(Node root)
     {
         Map<Integer,Node>mpp=new HashMap<>();
@@ -143,5 +146,16 @@ static int ind=-1;
             System.out.println(i.getValue().data);
         }
 
+    }
+    public static void kthLevel(Node root,int k)
+    {
+        if(root==null) return;
+        if(k==1)
+        {
+            System.out.println(root.data );
+            return;
+        }
+        kthLevel(root.left,k-1);
+        kthLevel(root.right,k-1);
     }
 }
