@@ -12,11 +12,35 @@ class Graph
             ls.add(new ArrayList<>());
         }
     }
-    void addEdge(int u,int v)
+    void addEdge(int a,int b)
     {
-        ls.get(u).add(v);
-        ls.get(v).add(u);
+        ls.get(a).add(b);
+        ls.get(b).add(a);
     }
+
+    void bfs()
+{
+    Queue<Integer> q = new LinkedList<>();
+    boolean[] visited = new boolean[v];
+
+    q.add(0);
+    visited[0] = true;
+
+    while(!q.isEmpty())
+    {
+        int u = q.poll();
+        System.out.print(u + " ");
+
+        for(int i : ls.get(u))
+        {
+            if(!visited[i])
+            {
+                visited[i] = true;
+                q.add(i);
+            }
+        }
+    }
+}
 }
 public class Two {
     public static void main(String[] args) {
@@ -27,7 +51,10 @@ public class Two {
     g.addEdge(4,2);
     g.addEdge(0,3);
 
+    g.bfs();
+
     System.out.println(g.ls);
+
     }
    
 
